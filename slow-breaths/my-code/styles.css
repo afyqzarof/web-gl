@@ -1,0 +1,77 @@
+@font-face {
+  font-family: primary-font;
+  src: url(./assets/sprat.woff2);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: primary-font, serif;
+}
+
+@keyframes inhale {
+  0% {
+    font-variation-settings: "wght" 20, "wdth" 120;
+    opacity: 0.6;
+  }
+
+  100% {
+    font-variation-settings: "wght" 150, "wdth" 120;
+    opacity: 1;
+  }
+}
+@keyframes exhale {
+  0% {
+    font-variation-settings: "wght" 150, "wdth" 120;
+    opacity: 1;
+  }
+
+  100% {
+    font-variation-settings: "wght" 20, "wdth" 120;
+    opacity: 0.6;
+  }
+}
+@keyframes throb {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+.canvas {
+  width: 43.75rem;
+  height: 43.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  translate: -50% -50%;
+  animation: throb 5s infinite alternate;
+}
+body {
+  background-color: #eeeeee;
+}
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.inhale,
+.exhale {
+  font-size: 3rem;
+  font-weight: 400;
+  color: black;
+}
+
+.inhale {
+  animation: inhale 5s infinite alternate;
+}
+
+.exhale {
+  animation: exhale 5s infinite alternate;
+}
